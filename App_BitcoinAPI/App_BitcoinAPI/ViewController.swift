@@ -8,13 +8,21 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        let url = URL(string: "")
-        let data = URLSession.shared.dataTask(with: <#T##URLRequest#>, completionHandler: <#T##(Data?, URLResponse?, Error?) -> Void#>)
+       if let url = URL(string: "https://blockchain.info/ticker") {
+            let data = URLSession.shared.dataTask(with: url) { datas, request, error in
+                if error == nil {
+                    print("Sucesso ao consultar a API")
+                } else {
+                    print("Erro ao consultar a API")
+                }
+            }
+        }
+
     }
-
-
+    
+    
 }
 
