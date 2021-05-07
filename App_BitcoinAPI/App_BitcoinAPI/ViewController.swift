@@ -11,7 +11,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       if let url = URL(string: "https://blockchain.info/ticker") {
+        if let url = URL(string: "https://blockchain.info/pt/ticker") {
             let data = URLSession.shared.dataTask(with: url) { datas, request, error in
                 if error == nil {
                     print("Sucesso ao consultar a API")
@@ -19,10 +19,8 @@ class ViewController: UIViewController {
                     print("Erro ao consultar a API")
                 }
             }
+            data.resume()
         }
-
     }
-    
-    
 }
 
