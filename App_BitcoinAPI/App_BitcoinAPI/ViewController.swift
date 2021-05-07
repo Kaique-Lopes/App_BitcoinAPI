@@ -17,7 +17,16 @@ class ViewController: UIViewController {
             // MARK: - Verificação de erro
             let data = URLSession.shared.dataTask(with: url) { datas, request, error in
                 if error == nil {
-                    print("Sucesso ao consultar a API")
+                        // MARK: - Retornando os dados
+                    if let dataRequest = datas {
+                        do {
+                            let json = try JSONSerialization.jsonObject(with: dataRequest, options: [])
+                            print(json)
+                        } catch {
+                            print("erro")
+                        }
+                    }
+                    
                 } else {
                     print("Erro ao consultar a API")
                 }
