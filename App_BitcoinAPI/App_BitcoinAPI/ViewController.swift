@@ -8,6 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var lbResult: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +21,16 @@ class ViewController: UIViewController {
                         // MARK: - Retornando os dados
                     if let dataRequest = datas {
                         do {
-                            let json = try JSONSerialization.jsonObject(with: dataRequest, options: [])
-                            print(json)
+                            if let json = try JSONSerialization.jsonObject(with: dataRequest, options: []) as? [String: Any] {
+                                    // MARK: - Retornando Valores
+                                if let brl = json["BRL"] as? [String: Any] {
+                                    if let buy = brl["buy"] as? Double {
+                                        print(buy)
+                                    }
+                                }
+                                
+                            }
+                            
                         } catch {
                             print("erro")
                         }
