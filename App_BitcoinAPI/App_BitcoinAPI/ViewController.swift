@@ -44,7 +44,8 @@ class ViewController: UIViewController {
                                 // MARK: - Retornando Valores
                                 if let brl = json["BRL"] as? [String: Any] {
                                     if let buy = brl["buy"] as? Double {
-                                        print(buy)
+                                        let valueFormated = self.formatValue(value: NSNumber(value: buy))
+                                        self.lbResult.text = "R$ " + valueFormated
                                     }
                                 }
                                 
