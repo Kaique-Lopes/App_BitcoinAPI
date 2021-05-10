@@ -13,7 +13,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.valueBitcoin()
+
+        
         
     }
     @IBAction func consult(_ sender: Any) {
@@ -45,7 +46,10 @@ class ViewController: UIViewController {
                                 if let brl = json["BRL"] as? [String: Any] {
                                     if let buy = brl["buy"] as? Double {
                                         let valueFormated = self.formatValue(value: NSNumber(value: buy))
-                                        self.lbResult.text = "R$ " + valueFormated
+                                        DispatchQueue.main.async(execute: {
+                                            self.lbResult.text = "R$ " + valueFormated
+                                        })
+                                        
                                     }
                                 }
                                 
