@@ -13,21 +13,23 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-            // MARK: - URL API
-
+        // MARK: - URL API
+        
     }
     @IBAction func consult(_ sender: Any) {
         
+    }
+    func valueBitcoin() {
         if let url = URL(string: "https://blockchain.info/pt/ticker") {
             
             // MARK: - Verificação de erro
             let data = URLSession.shared.dataTask(with: url) { datas, request, error in
                 if error == nil {
-                        // MARK: - Retornando os dados
+                    // MARK: - Retornando os dados
                     if let dataRequest = datas {
                         do {
                             if let json = try JSONSerialization.jsonObject(with: dataRequest, options: []) as? [String: Any] {
-                                    // MARK: - Retornando Valores
+                                // MARK: - Retornando Valores
                                 if let brl = json["BRL"] as? [String: Any] {
                                     if let buy = brl["buy"] as? Double {
                                         print(buy)
@@ -46,6 +48,7 @@ class ViewController: UIViewController {
                 }
             }
             data.resume()
-        }    }
+        }
+    }
 }
 
