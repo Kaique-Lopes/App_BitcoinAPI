@@ -14,6 +14,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
             // MARK: - URL API
+
+    }
+    @IBAction func consult(_ sender: Any) {
+        
         if let url = URL(string: "https://blockchain.info/pt/ticker") {
             
             // MARK: - Verificação de erro
@@ -42,10 +46,6 @@ class ViewController: UIViewController {
                 }
             }
             data.resume()
-        }
-    }
-    @IBAction func consult(_ sender: Any) {
-        
-    }
+        }    }
 }
 
