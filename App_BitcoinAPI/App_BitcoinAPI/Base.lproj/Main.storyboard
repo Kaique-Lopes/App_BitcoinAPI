@@ -27,7 +27,7 @@
                                             <constraint firstAttribute="width" constant="300" id="tfA-sh-Xhq"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 7.988,88" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYg-iB-KOE">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R$ 0.000,00" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wYg-iB-KOE">
                                         <rect key="frame" x="0.0" y="169.00000000000003" width="300" height="41.666666666666657"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="41.670000000000002" id="B1I-ek-zPI"/>
@@ -44,6 +44,9 @@
                                             <constraint firstAttribute="width" constant="300" id="cQC-w6-e0P"/>
                                         </constraints>
                                         <state key="normal" title="Consultar Preço"/>
+                                        <connections>
+                                            <action selector="consult:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IuB-n5-TAN"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -60,6 +63,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btConsult" destination="K9h-5S-B1O" id="n73-iw-XgG"/>
                         <outlet property="lbResult" destination="wYg-iB-KOE" id="F7y-Zi-JoT"/>
                     </connections>
                 </viewController>
