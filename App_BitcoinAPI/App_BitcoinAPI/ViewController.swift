@@ -13,13 +13,25 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // MARK: - URL API
+        self.valueBitcoin()
         
     }
     @IBAction func consult(_ sender: Any) {
-        
+        self.valueBitcoin()
     }
+    func formatValue(value: NSNumber) -> String {
+        let nf = NumberFormatter()
+        nf.numberStyle = .decimal
+        nf.locale = Locale(identifier: "pt_BR")
+        
+        if let valueFinal = nf.string(from: value) {
+            return valueFinal
+        }
+        return "0,00"
+    }
+    
     func valueBitcoin() {
+            // MARK: - URL API
         if let url = URL(string: "https://blockchain.info/pt/ticker") {
             
             // MARK: - Verificação de erro
