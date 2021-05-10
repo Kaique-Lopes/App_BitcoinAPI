@@ -8,14 +8,15 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak var lbResult: UILabel!
+    @IBOutlet weak var lbResult: UILabel! {
+        didSet {
+            lbResult.alpha = 0.2
+        }
+    }
     @IBOutlet weak var btConsult: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
-        
     }
     @IBAction func consult(_ sender: Any) {
         self.valueBitcoin()
@@ -46,9 +47,14 @@ class ViewController: UIViewController {
                                 if let brl = json["BRL"] as? [String: Any] {
                                     if let buy = brl["buy"] as? Double {
                                         let valueFormated = self.formatValue(value: NSNumber(value: buy))
-                                        DispatchQueue.main.async(execute: {
+//                                        DispatchQueue.main.async{
+//                                            self.lbResult.text = "R$ " + valueFormated
+//                                        }
+                                        
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                                             self.lbResult.text = "R$ " + valueFormated
-                                        })
+                                            self.lbResult.alpha = 1.0
+                                        }
                                         
                                     }
                                 }
