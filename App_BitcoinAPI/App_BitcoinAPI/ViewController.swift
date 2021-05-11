@@ -18,9 +18,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
     @IBAction func consult(_ sender: Any) {
         self.valueBitcoin()
     }
+    
     func formatValue(value: NSNumber) -> String {
         let nf = NumberFormatter()
         nf.numberStyle = .decimal
@@ -47,10 +49,6 @@ class ViewController: UIViewController {
                                 if let brl = json["BRL"] as? [String: Any] {
                                     if let buy = brl["buy"] as? Double {
                                         let valueFormated = self.formatValue(value: NSNumber(value: buy))
-//                                        DispatchQueue.main.async{
-//                                            self.lbResult.text = "R$ " + valueFormated
-//                                        }
-                                        
                                         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                                             self.lbResult.text = "R$ " + valueFormated
                                             self.lbResult.alpha = 1.0
