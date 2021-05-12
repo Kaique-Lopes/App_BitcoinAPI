@@ -35,6 +35,7 @@ class ViewController: UIViewController {
     }
     
     func valueBitcoin() {
+        self.btConsult.setTitle("Atualizando", for: .normal)
             // MARK: - URL API
         if let url = URL(string: "https://blockchain.info/pt/ticker") {
             
@@ -49,9 +50,10 @@ class ViewController: UIViewController {
                                 if let brl = json["BRL"] as? [String: Any] {
                                     if let buy = brl["buy"] as? Double {
                                         let valueFormated = self.formatValue(value: NSNumber(value: buy))
-                                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                                             self.lbResult.text = "R$ " + valueFormated
                                             self.lbResult.alpha = 1.0
+                                            self.btConsult.setTitle("Atualizado", for: .normal)
                                         }
                                         
                                     }
